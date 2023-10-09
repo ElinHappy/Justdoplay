@@ -312,7 +312,7 @@ footer a:hover {
   "ip16 ip16 . . . . . . . . . ip15 ip15 ip15";
 }
 
-.movie-list .movies {
+.movie-list .games {
   justify-content: center;
   margin: 16px auto 0px;
   padding: 0px;
@@ -461,13 +461,13 @@ footer a:hover {
   }
 }
 
-.movie-list .movies .fg1 {
+.movie-list .games .fg1 {
   grid-area: ip0 / ip0 / ip0 / ip0;
   width: 314px;
   height: 314px;
 }
 
-.movie-list .movies .fg2 {
+.movie-list .games .fg2 {
   grid-area: ip4 / ip4 / ip4 / ip4;
   width: 204px;
   height: 204px;
@@ -562,7 +562,7 @@ footer a:hover {
 }
 
 /* components/MovieItem */
-.movies .movie {
+.games .game {
   /* --width: 200px; */
   --width: 94px;
   --height: 94px;
@@ -579,12 +579,12 @@ footer a:hover {
   transition: .2s;
 }
 
-.movies .movie:hover {
+.games .game:hover {
   transform: scale(1.06); 
 }
 
 /*
-.movies .movie:hover::after {
+.games .game:hover::after {
   content: "";
   position: absolute;
   top: 0;
@@ -595,13 +595,13 @@ footer a:hover {
 }
 */
 /*
-.movies .movie .info:hover::after {
+.games .game .info:hover::after {
   transition: transform .3s, opacity .3s;
   transform: translate(0,8px);
 }
 */
 
-.movies .movie .info {
+.games .game .info {
   background-color: rgba(14,17,27,.3);
   backdrop-filter: blur(10px);
   width: 100%;
@@ -632,10 +632,10 @@ footer a:hover {
   */
 
 }
-.movies .movie .info .year {
+.games .game .info .year {
   color: var(--color-primary);
 }
-.movies .movie .info .title {
+.games .game .info .title {
   color: var(--color-white);
 }
 

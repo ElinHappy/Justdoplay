@@ -1,7 +1,7 @@
 import { Component } from "../core/heropy";
 //import Headline from "../components/Headline";
 import Search from "../components/Search";
-import MovieList from "../components/MovieList";
+import GameList from "../components/GameList";
 import GameDesc from "../components/GameDesc";
 import MovieListMore from "../components/MovieListMore";
 
@@ -10,7 +10,7 @@ export default class Home extends Component {
     render() {
         //const headline = new Headline().el
         const search = new Search().el
-        const movielist = new MovieList().el
+        const gamelist = new GameList().el
         const movielistmore = new MovieListMore().el
         const gamedesc = new GameDesc().el
 
@@ -18,7 +18,7 @@ export default class Home extends Component {
         this.el.append(
             //headline,
             search,
-            movielist,
+            gamelist,
             movielistmore,
             gamedesc
 

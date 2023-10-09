@@ -1,6 +1,6 @@
 import { Component } from "../core/heropy"
 
-export default class MovieItem extends Component {
+export default class GameItem extends Component {
     constructor(props) {
         super({
             props, 
@@ -12,7 +12,7 @@ export default class MovieItem extends Component {
         const { movie } = this.props
 
         this.el.setAttribute('href',`#/movie?id=${movie.imdbID}`)
-        this.el.classList.add('movie')
+        this.el.classList.add('game')
         if( movie.imdbID === 'tt0119174') {
             this.el.classList.add('fg1')
         } else if( movie.imdbID === 'tt1515091') {

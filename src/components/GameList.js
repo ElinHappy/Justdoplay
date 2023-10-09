@@ -1,12 +1,11 @@
 import { Component } from "../core/heropy"
-import store from "../store/movie"
 import movieStore from "../store/movie"
-import MovieItem from "./MovieItem"
+import GameItem from "./GameItem"
 
-export default class MovieList extends Component {
+export default class GameList extends Component {
     constructor() {
         super()
-        movieStore.subscribe('movies main-grid', () => {
+        movieStore.subscribe('games main-grid', () => {
             this.render()
         })
         movieStore.subscribe('loading', () => {
@@ -21,13 +20,13 @@ export default class MovieList extends Component {
         this.el.innerHTML = /* html */ `
             ${movieStore.state.message 
             ? `<div class="message">${movieStore.state.message}</div>` 
-            : '<div class="movies main-grid"></div>'}
+            : '<div class="games main-grid"></div>'}
             <div class="categories main-grid"></div>
             <div class="the-loader hide"></div>
         `
-        const moviesEl = this.el.querySelector('.movies')
-        moviesEl?.append(
-            ...movieStore.state.movies.map( movie => new MovieItem({movie}).el) 
+        const gamesEl = this.el.querySelector('.games')
+        gamesEl?.append(
+            ...movieStore.state.movies.map( movie => new GameItem({movie}).el) 
         )
         this.getCategories()
     
