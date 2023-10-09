@@ -30,7 +30,7 @@ export default class TheHeader extends Component {
       <a
         href="#/"
         class="logo">
-        <span>OMDbAPI</span>.COM
+        <span>JustDoPlay!</span>.COM
       </a>
       <nav>
         <ul>

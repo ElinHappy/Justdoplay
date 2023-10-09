@@ -22,6 +22,7 @@ export const searchMovies = async page => {
 
     try {
         const res = await fetch(`https://omdbapi.com?apikey=7035c60c&s=${store.state.searchText}&page=${page}`)
+        //console.log(res.json())
         const { Search, totalResults, Response, Error } = await res.json()
         if ( Response === "True") {
             store.state.movies = [
