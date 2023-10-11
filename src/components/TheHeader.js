@@ -11,6 +11,10 @@ export default class TheHeader extends Component {
             href: '#/'
           },
           {
+            name: 'GamePlay',
+            href: '#/game?id=tt4520988'
+          },
+          {
             name: 'Movie',
             href: '#/movie?id=tt4520988'
           },
