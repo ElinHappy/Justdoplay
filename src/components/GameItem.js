@@ -11,7 +11,7 @@ export default class GameItem extends Component {
     render() {
         const { movie } = this.props
 
-        this.el.setAttribute('href',`#/game?id=${movie.imdbID}`)
+        this.el.setAttribute('href',`#/game/game?id=${movie.imdbID}`)
         this.el.classList.add('game')
         if( movie.imdbID === 'tt0119174') {
             this.el.classList.add('fg1')
