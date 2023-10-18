@@ -8,7 +8,7 @@ import NotFound from './NotFound'
 
 export default createRouter([
     { path: '#/', component: Home},
-    { path: '#/game/game', component: Game},
+    { path: '#/game/.*', component: Game},
     { path: '#/cg/ourfav', component: OurFavourite},
     { path: '#/movie', component: Movie},
     { path: '#/about', component: About},

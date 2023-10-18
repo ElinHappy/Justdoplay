@@ -1,18 +1,32 @@
 import { Component } from "../core/heropy";
 
 export default class GameDesc extends Component {
+
+    constructor(props) {
+        console.log(props)
+        super({
+            props
+        })
+    }
+
     render() {
+
+        const { cur_game } = this.props
+
         this.el.classList.add('game-desc')
         this.el.innerHTML = /* html */ `
         <article class="npmo3Vk8vdpOrUnRlo4K">
         <nav class="cate-navi">
             <ul>
                 <li><a href="/">Games</a></li>
-                <li><a href="/en/shooting">Shooting Games</a></li>
+                <li><a href="/en/shooting">${cur_game.category} Games</a></li>
             </ul>
-            <h2 class="cate-title">Shooting Games</h2>
+            <h2 class="cate-title">${cur_game.title}</h2>
         </nav>
         <div class="cate-desc">
+            <p>
+                ${cur_game.description}
+            </P>
             
             <p>
                 Expensive video game consoles aren’t the only place to play marksmanship games. Our collection of shooting games are all free to play and available right now, on your computer. Play as a variety of marksmen in tons of

@@ -16,15 +16,22 @@ export default class TheHeader extends Component {
           },
           {
             name: 'Our Favourires',
-            href: '#/cg/ourfav?cname=weeklytop'
+            href: '#/cg/ourfav?cname=popular'
           },
           {
-            name: 'G.O.D - Game Of the Day',
+            name: 'World Rank',
             href: '#/movie?id=tt4520988'
           },
-
           {
-            name: 'Try NOW',
+            name: 'Movie&Games',
+            href: '#/movie?id=tt4520988'
+          },
+          {
+            name: 'Tranding Now',
+            href: '#/movie?id=tt4520988'
+          },
+          {
+            name: 'Random Play',
             href: '#/about'
           }
         ]

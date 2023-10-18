@@ -11,11 +11,16 @@ html {
   --color-primary: #FDC000;
   --color-hover: #F86A05;
   --color-area: #1C212E;
+  --color-title-area: #404040;
 
   --cellSize: 94px;
   --cellSpacing: 16px;
   --maxPageWidth: 1860px;
   --tileFontSize: 16px;
+
+  --fgb-size: 314px;
+  --fgm-size: 204px;
+  --fgs-size: 94px;
 }
 body {
   background-color: var(--color-black);
@@ -28,16 +33,12 @@ body a {
   text-decoration: none;
 }
 
-.hmenu:hover{
-  text-decoration: underline;
-}
-
 /* Container */
 .container {
   /*max-width: 1120px;
   max-width: var(--content); */
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 0px;
   flex-grow: 1;
   width: var(--root-content-width,314px);
 }
@@ -180,7 +181,7 @@ header .logo span {
 }
 header nav ul {
   display: flex;
-  gap: 14px;
+  gap: 20px;
 }
 header nav ul li a {
   font-size: 14px;
@@ -190,6 +191,10 @@ header nav ul li a {
 }
 header nav ul li a.active {
   color: var(--color-primary);
+}
+header nav ul li a:hover{
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 header .user {
   width: 40px;
@@ -286,10 +291,10 @@ footer a:hover {
 }
 
 
-/* components/MovieList */
+/* components/GamesList */
 .game-list {
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: var(--color-area);
 }
 .game-list .message {
@@ -306,22 +311,30 @@ footer a:hover {
   grid-auto-flow: dense;
   grid-template-columns: repeat(var(--gridTemplateColumns),94px);
   grid-template-areas: 
-  ". . ip0 ip0 ip0 ip4 ip4 . . . . . ip5 ip5"
-  ". . ip0 ip0 ip0 ip4 ip4 . ip2 ip2 ip2 . ip5 ip5" 
-  "ip3 ip3 ip0 ip0 ip0 . . . ip2 ip2 ip2 . ip6 ip6" 
-  "ip3 ip3 . . . ip1 ip1 ip1 ip2 ip2 ip2 . ip6 ip6" 
-  "ip7 ip7 . ip8 ip8 ip1 ip1 ip1 ip9 ip9 ip10 ip10 . ." 
-  "ip7 ip7 . ip8 ip8 ip1 ip1 ip1 ip9 ip9 ip10 ip10 . ." 
+  ". . fg0 fg0 fg0 fg4 fg4 . . . . . fg5 fg5"
+  ". . fg0 fg0 fg0 fg4 fg4 . fg2 fg2 fg2 . fg5 fg5" 
+  "fg3 fg3 fg0 fg0 fg0 . . . fg2 fg2 fg2 . fg6 fg6" 
+  "fg3 fg3 . . . fg1 fg1 fg1 fg2 fg2 fg2 . fg6 fg6" 
+  "fg7 fg7 . fg8 fg8 fg1 fg1 fg1 fg9 fg9 fg10 fg10 . ." 
+  "fg7 fg7 . fg8 fg8 fg1 fg1 fg1 fg9 fg9 fg10 fg10 . ." 
   ". . . . . . . . . . . . . ." 
-  ". . . . . . . . ip11 ip11 ip11 . . ."
-  "ip12 ip12 . . . . . . ip11 ip11 ip11 . . ."
-  "ip12 ip12 . . . . . . ip11 ip11 ip11 . . ." 
-  ". . ip13 ip13 . . . . . . . . . ."
-  ". . ip13 ip13 . . . . . . . . . ."
-  ". . . . . . ip14 ip14 . . . ip15 ip15 ip15"
-  "ip16 ip16 . . . . ip14 ip14 . . . ip15 ip15 ip15"
-  "ip16 ip16 . . . . . . . . . ip15 ip15 ip15";
+  ". . . . . . . . fg11 fg11 fg11 . . ."
+  "fg12 fg12 . . . . . . fg11 fg11 fg11 . . ."
+  "fg12 fg12 . . . . . . fg11 fg11 fg11 . . ." 
+  ". . fg13 fg13 . . . . . . . . . ."
+  ". . fg13 fg13 . . . . . . . . . ."
+  ". . . . . . fg14 fg14 . . . fg15 fg15 fg15"
+  "fg16 fg16 . . . . fg14 fg14 . . . fg15 fg15 fg15"
+  "fg16 fg16 . . . . . . . . . fg15 fg15 fg15";
 }
+
+.game-list .main-grid .fg3 { grid-area: fg3 / fg3 / fg3 / fg3; width: var(--fgm-size); height: var(--fgm-size); }
+.game-list .main-grid .fg4 { grid-area: fg4 / fg4 / fg4 / fg4; width: var(--fgm-size); height: var(--fgm-size); }
+.game-list .main-grid .fg6 { grid-area: fg6 / fg6 / fg6 / fg6; width: var(--fgm-size); height: var(--fgm-size); }
+.game-list .main-grid .fg7 { grid-area: fg7 / fg7 / fg7 / fg7; width: var(--fgm-size); height: var(--fgm-size); }
+.game-list .main-grid .fg9 { grid-area: fg9 / fg9 / fg9 / fg9; width: var(--fgm-size); height: var(--fgm-size); }
+.game-list .main-grid .fg14 { grid-area: fg14 / fg14 / fg14 / fg14; width: var(--fgm-size); height: var(--fgm-size); }
+
 
 .game-list .games {
   justify-content: center;
@@ -334,71 +347,108 @@ footer a:hover {
   .game-list .main-grid {
     --gridTemplateColumns: 14;
     grid-template-areas: 
-    ". . ip0 ip0 ip0 ip4 ip4 . . . . . ip5 ip5"
-    ". . ip0 ip0 ip0 ip4 ip4 . ip2 ip2 ip2 . ip5 ip5" 
-    "ip3 ip3 ip0 ip0 ip0 . . . ip2 ip2 ip2 . ip6 ip6" 
-    "ip3 ip3 . . . ip1 ip1 ip1 ip2 ip2 ip2 . ip6 ip6" 
-    "ip7 ip7 . ip8 ip8 ip1 ip1 ip1 ip9 ip9 ip10 ip10 . ." 
-    "ip7 ip7 . ip8 ip8 ip1 ip1 ip1 ip9 ip9 ip10 ip10 . ." 
+    ". . fg0 fg0 fg0 fg4 fg4 . . . . . fg5 fg5"
+    ". . fg0 fg0 fg0 fg4 fg4 . fg2 fg2 fg2 . fg5 fg5" 
+    "fg3 fg3 fg0 fg0 fg0 . . . fg2 fg2 fg2 . fg6 fg6" 
+    "fg3 fg3 . . . fg1 fg1 fg1 fg2 fg2 fg2 . fg6 fg6" 
+    "fg7 fg7 . fg8 fg8 fg1 fg1 fg1 fg9 fg9 fg10 fg10 . ." 
+    "fg7 fg7 . fg8 fg8 fg1 fg1 fg1 fg9 fg9 fg10 fg10 . ." 
     ". . . . . . . . . . . . . ." 
-    ". . . . . . . . ip11 ip11 ip11 . . ."
-    "ip12 ip12 . . . . . . ip11 ip11 ip11 . . ."
-    "ip12 ip12 . . . . . . ip11 ip11 ip11 . . ." 
-    ". . ip13 ip13 . . . . . . . . . ."
-    ". . ip13 ip13 . . . . . . . . . ."
-    ". . . . . . ip14 ip14 . . . ip15 ip15 ip15"
-    "ip16 ip16 . . . . ip14 ip14 . . . ip15 ip15 ip15"
-    "ip16 ip16 . . . . . . . . . ip15 ip15 ip15";    
+    ". . . . . . . . fg11 fg11 fg11 . . ."
+    "fg12 fg12 . . . . . . fg11 fg11 fg11 . . ."
+    "fg12 fg12 . . . . . . fg11 fg11 fg11 . . ." 
+    ". . fg13 fg13 . . . . . . . . . ."
+    ". . fg13 fg13 . . . . . . . . . ."
+    ". . . . . . fg14 fg14 . . . fg15 fg15 fg15"
+    "fg16 fg16 . . . . fg14 fg14 . . . fg15 fg15 fg15"
+    "fg16 fg16 . . . . . . . . . fg15 fg15 fg15";    
   }
+
+  .game-list .main-grid .fg0 { grid-area: fg0 / fg0 / fg0 / fg0; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg5 { grid-area: fg5 / fg5 / fg5 / fg5; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg8 { grid-area: fg8 / fg8 / fg8 / fg8; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg10 { grid-area: fg10 / fg10 / fg10 / fg10; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg11 { grid-area: fg11 / fg11 / fg11 / fg11; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg13 { grid-area: fg13 / fg13 / fg13 / fg13; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg12 { grid-area: fg12 / fg12 / fg12 / fg12; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg15 { grid-area: fg15 / fg15 / fg15 / fg15; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg16 { grid-area: fg16 / fg16 / fg16 / fg16; width: var(--fgm-size); height: var(--fgm-size); }
 }
 
-@media (min-width: 1320px) and (max-width: 1540.9px) {
+@media (min-width: 1321px) and (max-width: 1540.9px) {
   .game-list .main-grid {
     --gridTemplateColumns: 12;
     grid-template-areas: 
-    ". . ip0 ip0 ip0 ip3 ip3 ip4 ip4 ip5 ip5 ."
-    "ip2 ip2 ip0 ip0 ip0 ip3 ip3 ip4 ip4 ip5 ip5 ."
-    "ip2 ip2 ip0 ip0 ip0 ip1 ip1 ip1 . ip6 ip6 ."
-    ". . . . . ip1 ip1 ip1 . ip6 ip6 ."
-    ". ip7 ip7 ip8 ip8 ip1 ip1 ip1 . ip9 ip9 ."
-    ". ip7 ip7 ip8 ip8 . . . . ip9 ip9 ."
+    ". . fg0 fg0 fg0 fg3 fg3 fg4 fg4 fg5 fg5 ."
+    "fg2 fg2 fg0 fg0 fg0 fg3 fg3 fg4 fg4 fg5 fg5 ."
+    "fg2 fg2 fg0 fg0 fg0 fg1 fg1 fg1 . fg6 fg6 ."
+    ". . . . . fg1 fg1 fg1 . fg6 fg6 ."
+    ". fg7 fg7 fg8 fg8 fg1 fg1 fg1 . fg9 fg9 ."
+    ". fg7 fg7 fg8 fg8 . . . . fg9 fg9 ."
     ". . . . . . . . . . . ."
-    ". . . . . . . ip10 ip10 . . ."
-    "ip11 ip11 . . . . . ip10 ip10 . . ."
-    "ip11 ip11 ip12 ip12 . . . . . . . ."
-    ". . ip12 ip12 . . . . . . . ."
-    ". . . . . . ip13 ip13 . . . ."
-    ". . . . . . ip13 ip13 . . . ."
-    ". ip14 ip14 . . . . . . . . ."
-    ". ip14 ip14 . . . . . . ip15 ip15 ."
-    ". . . . . . . . . ip15 ip15 .";   
+    ". . . . . . . fg10 fg10 . . ."
+    "fg11 fg11 . . . . . fg10 fg10 . . ."
+    "fg11 fg11 fg12 fg12 . . . . . . . ."
+    ". . fg12 fg12 . . . . . . . ."
+    ". . . . . . fg13 fg13 . . . ."
+    ". . . . . . fg13 fg13 . . . ."
+    ". fg14 fg14 . . . . . . . . ."
+    ". fg14 fg14 . . . . . . fg15 fg15 ."
+    ". . . . . . . . . fg15 fg15 .";   
   }
+  .game-list .main-grid .fg0 { grid-area: fg0 / fg0 / fg0 / fg0; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg5 { grid-area: fg5 / fg5 / fg5 / fg5; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg8 { grid-area: fg8 / fg8 / fg8 / fg8; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg10 { grid-area: fg10 / fg10 / fg10 / fg10; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg11 { grid-area: fg11 / fg11 / fg11 / fg11; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg12 { grid-area: fg12 / fg12 / fg12 / fg12; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg13 { grid-area: fg13 / fg13 / fg13 / fg13; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg15 { grid-area: fg15 / fg15 / fg15 / fg15; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg16 { grid-area: fg16 / fg16 / fg16 / fg16; width: var(--fgs-size); height: var(--fgs-size); }
 }
 
 @media (min-width: 1211px) and (max-width: 1320.9px) {
   .game-list .main-grid {
     --gridTemplateColumns: 11;
     grid-template-areas: 
-    ". . ip0 ip0 ip0 ip3 ip3 ip4 ip4 ip5 ip5"
-    "ip2 ip2 ip0 ip0 ip0 ip3 ip3 ip4 ip4 ip5 ip5"
-    "ip2 ip2 ip0 ip0 ip0 ip1 ip1 ip1 . ip6 ip6"
-    ". . . . . ip1 ip1 ip1 . ip6 ip6"
-    ". ip7 ip7 ip8 ip8 ip1 ip1 ip1 . ip9 ip9"
-    ". ip7 ip7 ip8 ip8 . . . . ip9 ip9"
+    ". . fg0 fg0 fg0 fg3 fg3 fg4 fg4 fg5 fg5"
+    "fg2 fg2 fg0 fg0 fg0 fg3 fg3 fg4 fg4 fg5 fg5"
+    "fg2 fg2 fg0 fg0 fg0 fg1 fg1 fg1 . fg6 fg6"
+    ". . . . . fg1 fg1 fg1 . fg6 fg6"
+    ". fg7 fg7 fg8 fg8 fg1 fg1 fg1 . fg9 fg9"
+    ". fg7 fg7 fg8 fg8 . . . . fg9 fg9"
     ". . . . . . . . . . ."
-    ". . . . . . ip10 ip10 ip10 . ."
-    "ip11 ip11 . . . . ip10 ip10 ip10 . ."
-    "ip11 ip11 ip12 ip12 . . ip10 ip10 ip10 . ."
-    ". . ip12 ip12 . . . . . . ."
+    ". . . . . . fg10 fg10 fg10 . ."
+    "fg11 fg11 . . . . fg10 fg10 fg10 . ."
+    "fg11 fg11 fg12 fg12 . . fg10 fg10 fg10 . ."
+    ". . fg12 fg12 . . . . . . ."
     ". . . . . . . . . . ."
-    ". . . ip13 ip13 ip13 . . . . ."
-    ". . . ip13 ip13 ip13 . ip14 ip14 . ."
-    ". . . ip13 ip13 ip13 . ip14 ip14 . ."
+    ". . . fg13 fg13 fg13 . . . . ."
+    ". . . fg13 fg13 fg13 . fg14 fg14 . ."
+    ". . . fg13 fg13 fg13 . fg14 fg14 . ."
     ". . . . . . . . . . ."
-    ". ip15 ip15 . . . . . . ip16 ip16"
-    ". ip15 ip15 ip17 ip17 . . . . ip16 ip16"
-    ". . . ip17 ip17 . . . . . .";
+    ". fg15 fg15 . . . . . . fg16 fg16"
+    ". fg15 fg15 fg17 fg17 . . . . fg16 fg16"
+    ". . . fg17 fg17 . . . . . .";
   }
+
+  .game-list .main-grid .fg0 { grid-area: fg0 / fg0 / fg0 / fg0; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg5 { grid-area: fg5 / fg5 / fg5 / fg5; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg8 { grid-area: fg8 / fg8 / fg8 / fg8; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg10 { grid-area: fg10 / fg10 / fg10 / fg10; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg11 { grid-area: fg11 / fg11 / fg11 / fg11; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg12 { grid-area: fg12 / fg12 / fg12 / fg12; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg13 { grid-area: fg13 / fg13 / fg13 / fg13; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg15 { grid-area: fg15 / fg15 / fg15 / fg15; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg16 { grid-area: fg16 / fg16 / fg16 / fg16; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg17 { grid-area: fg17 / fg17 / fg17 / fg17; width: var(--fgm-size); height: var(--fgm-size); }
+
 }
 
 
@@ -407,84 +457,103 @@ footer a:hover {
   .game-list .main-grid {
     --gridTemplateColumns: 9;
     grid-template-areas:
-    ". . ip0 ip0 ip0 ip3 ip3 ip4 ip4"
-        "ip2 ip2 ip0 ip0 ip0 ip3 ip3 ip4 ip4"
-        "ip2 ip2 ip0 ip0 ip0 ip1 ip1 ip1 ."
-        ". . . ip6 ip6 ip1 ip1 ip1 ."
-        ". ip5 ip5 ip6 ip6 ip1 ip1 ip1 ."
-        ". ip5 ip5 ip8 ip8 . ip9 ip9 ."
-        ". ip7 ip7 ip8 ip8 . ip9 ip9 ."
-        ". ip7 ip7 . . . . . ."
-        ". . ip10 ip10 ip10 . ip13 ip13 ."
-        ". . ip10 ip10 ip10 . ip13 ip13 ."
-        ". . ip10 ip10 ip10 . . . ."
-        "ip14 ip14 . . . . . . ."
-        "ip14 ip14 . . . . ip11 ip11 ip11"
-        ". . . . . . ip11 ip11 ip11"
-        ". ip15 ip15 . . . ip11 ip11 ip11"
-        ". ip15 ip15 . . . . . ."
+    ". . fg0 fg0 fg0 fg3 fg3 fg4 fg4"
+        "fg2 fg2 fg0 fg0 fg0 fg3 fg3 fg4 fg4"
+        "fg2 fg2 fg0 fg0 fg0 fg1 fg1 fg1 ."
+        ". . . fg6 fg6 fg1 fg1 fg1 ."
+        ". fg5 fg5 fg6 fg6 fg1 fg1 fg1 ."
+        ". fg5 fg5 fg8 fg8 . fg9 fg9 ."
+        ". fg7 fg7 fg8 fg8 . fg9 fg9 ."
+        ". fg7 fg7 . . . . . ."
+        ". . fg10 fg10 fg10 . fg13 fg13 ."
+        ". . fg10 fg10 fg10 . fg13 fg13 ."
+        ". . fg10 fg10 fg10 . . . ."
+        "fg14 fg14 . . . . . . ."
+        "fg14 fg14 . . . . fg11 fg11 fg11"
+        ". . . . . . fg11 fg11 fg11"
+        ". fg15 fg15 . . . fg11 fg11 fg11"
+        ". fg15 fg15 . . . . . ."
         ". . . . . . . . ."
-        ". . . . ip12 ip12 ip12 . ."
-        ". . . . ip12 ip12 ip12 . ."
-        ". ip16 ip16 . ip12 ip12 ip12 . ."
-        ". ip16 ip16 ip17 ip17 . . . ."
-        ". . . ip17 ip17 . . . ."
-        ". . . . . . . ip18 ip18"
-        ". . . . . . . ip18 ip18";
+        ". . . . fg12 fg12 fg12 . ."
+        ". . . . fg12 fg12 fg12 . ."
+        ". fg16 fg16 . fg12 fg12 fg12 . ."
+        ". fg16 fg16 fg17 fg17 . . . ."
+        ". . . fg17 fg17 . . . ."
+        ". . . . . . . fg18 fg18"
+        ". . . . . . . fg18 fg18";
   }
+
+  .game-list .main-grid .fg0 { grid-area: fg0 / fg0 / fg0 / fg0; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg5 { grid-area: fg5 / fg5 / fg5 / fg5; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg8 { grid-area: fg8 / fg8 / fg8 / fg8; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg10 { grid-area: fg10 / fg10 / fg10 / fg10; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg11 { grid-area: fg11 / fg11 / fg11 / fg11; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg12 { grid-area: fg12 / fg12 / fg12 / fg12; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg13 { grid-area: fg13 / fg13 / fg13 / fg13; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg15 { grid-area: fg15 / fg15 / fg15 / fg15; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg16 { grid-area: fg16 / fg16 / fg16 / fg16; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg17 { grid-area: fg17 / fg17 / fg17 / fg17; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg18 { grid-area: fg18 / fg18 / fg18 / fg18; width: var(--fgm-size); height: var(--fgm-size); }
 }
 
 @media (min-width: 111px) and (max-width: 990.9px) {
   .game-list .main-grid {
     --gridTemplateColumns: 7;
     grid-template-areas:
-    ". . ip0 ip0 ip0 ip1 ip1"
-    ". . ip0 ip0 ip0 ip1 ip1"
-    "ip2 ip2 ip0 ip0 ip0 . ."
-    "ip2 ip2 . ip3 ip3 . ."
-    ". . . ip3 ip3 ip4 ip4"
-    ". . . . . ip4 ip4"
-    "ip5 ip5 ip5 . . . ."
-    "ip5 ip5 ip5 . ip6 ip6 ."
-    "ip5 ip5 ip5 . ip6 ip6 ."
-    ". . ip7 ip7 . . ."
-    ". . ip7 ip7 . . ."
-    ". . . ip8 ip8 ip8 ."
-    ". . . ip8 ip8 ip8 ."
-    "ip9 ip9 . ip8 ip8 ip8 ."
-    "ip9 ip9 . . . ip10 ip10"
-    ". . . . . ip10 ip10"
-    "ip11 ip11 ip11 . ip13 ip13 ."
-    "ip11 ip11 ip11 . ip13 ip13 ."
-    "ip11 ip11 ip11 . . . ."
-    ". . ip14 ip14 . . ."
-    ". . ip14 ip14 ip12 ip12 ip12"
-    ". . . . ip12 ip12 ip12"
-    ". . . . ip12 ip12 ip12"
-    "ip15 ip15 . . . . ."
-    "ip15 ip15 . . . . ."
-    ". . ip16 ip16 . . ."
-    ". . ip16 ip16 . . ."
-    ". . . ip17 ip17 . ."
-    ". ip18 ip18 ip17 ip17 . ."
-    ". ip18 ip18 . . ip19 ip19"
-    ". . . . . ip19 ip19";
+    ". . fg0 fg0 fg0 fg1 fg1"
+    ". . fg0 fg0 fg0 fg1 fg1"
+    "fg2 fg2 fg0 fg0 fg0 . ."
+    "fg2 fg2 . fg3 fg3 . ."
+    ". . . fg3 fg3 fg4 fg4"
+    ". . . . . fg4 fg4"
+    "fg5 fg5 fg5 . . . ."
+    "fg5 fg5 fg5 . fg6 fg6 ."
+    "fg5 fg5 fg5 . fg6 fg6 ."
+    ". . fg7 fg7 . . ."
+    ". . fg7 fg7 . . ."
+    ". . . fg8 fg8 fg8 ."
+    ". . . fg8 fg8 fg8 ."
+    "fg9 fg9 . fg8 fg8 fg8 ."
+    "fg9 fg9 . . . fg10 fg10"
+    ". . . . . fg10 fg10"
+    "fg11 fg11 fg11 . fg13 fg13 ."
+    "fg11 fg11 fg11 . fg13 fg13 ."
+    "fg11 fg11 fg11 . . . ."
+    ". . fg14 fg14 . . ."
+    ". . fg14 fg14 fg12 fg12 fg12"
+    ". . . . fg12 fg12 fg12"
+    ". . . . fg12 fg12 fg12"
+    "fg15 fg15 . . . . ."
+    "fg15 fg15 . . . . ."
+    ". . fg16 fg16 . . ."
+    ". . fg16 fg16 . . ."
+    ". . . fg17 fg17 . ."
+    ". fg18 fg18 fg17 fg17 . ."
+    ". fg18 fg18 . . fg19 fg19"
+    ". . . . . fg19 fg19";
   }
+  .game-list .main-grid .fg0 { grid-area: fg0 / fg0 / fg0 / fg0; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg5 { grid-area: fg5 / fg5 / fg5 / fg5; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg8 { grid-area: fg8 / fg8 / fg8 / fg8; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg10 { grid-area: fg10 / fg10 / fg10 / fg10; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg11 { grid-area: fg11 / fg11 / fg11 / fg11; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg12 { grid-area: fg12 / fg12 / fg12 / fg12; width: var(--fgb-size); height: var(--fgb-size); }
+  .game-list .main-grid .fg13 { grid-area: fg13 / fg13 / fg13 / fg13; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg15 { grid-area: fg15 / fg15 / fg15 / fg15; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg16 { grid-area: fg16 / fg16 / fg16 / fg16; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg17 { grid-area: fg17 / fg17 / fg17 / fg17; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg18 { grid-area: fg18 / fg18 / fg18 / fg18; width: var(--fgm-size); height: var(--fgm-size); }
+  .game-list .main-grid .fg19 { grid-area: fg19 / fg19 / fg19 / fg19; width: var(--fgm-size); height: var(--fgm-size); }
+
 }
 
-.game-list .games .fg1 {
-  grid-area: ip0 / ip0 / ip0 / ip0;
-  width: 314px;
-  height: 314px;
-}
 
-.game-list .games .fg2 {
-  /*
-  grid-area: ip7 / ip7 / ip7 / ip7;
-  */
-  width: 94px;
-  height: 94px;
-}
+
+
 
 /* game-lst / play-grid */
 .game-list .play-grid {
@@ -503,6 +572,9 @@ footer a:hover {
   ". pc0 pc0 pc0 pc0 pc0 pc0 pc0 pc0 pc0 pc0 fg2 fg2 ."  
   ". . . . adb0 adb0 adb0 adb0 adb0 adb0 adb0 fg2 fg2 .";
 } 
+
+.game-list .play-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgm-size); height: var(--fgm-size); }
+.game-list .play-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgm-size); height: var(--fgm-size); }
 
 /*
 .game-list .bpRqPb {
@@ -555,6 +627,9 @@ footer a:hover {
     ". . adb0 adb0 adb0 adb0 adb0 adb0 adb0 adr1 adr1";
   }
 
+  .game-list .play-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgs-size); height: var(--fgs-size); }
+  .game-list .play-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgs-size); height: var(--fgs-size); }
+
   .game-list .bpRqPb {
     width: 836px;
     height: 534px;
@@ -572,6 +647,9 @@ footer a:hover {
     "adb0 adb0 adb0 adb0 adb0 adb0 adb0 adr1 adr1" 
     ". . . . . . . adr1 adr1";  
   }
+  .game-list .play-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgs-size); height: var(--fgs-size); }
+  .game-list .play-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgs-size); height: var(--fgs-size); }
+
   .game-list .bpRqPb {
     width: 640px;
     height: 424px;
@@ -588,6 +666,8 @@ footer a:hover {
     ". pc0 pc0 pc0 pc0 pc0 pc0" 
     "adb0 adb0 adb0 adb0 adb0 adb0 adb0";
   }
+  .game-list .play-grid .fg1 { grid-area: fg1 / fg1 / fg1 / fg1; width: var(--fgs-size); height: var(--fgs-size); }
+  .game-list .play-grid .fg2 { grid-area: fg2 / fg2 / fg2 / fg2; width: var(--fgs-size); height: var(--fgs-size); }
   .game-list .bpRqPb {
     width: 640px;
     height: 424px;
@@ -994,8 +1074,8 @@ footer a:hover {
 */
 
 .games .game .info {
-  background-color: rgba(14,17,27,.3);
-  backdrop-filter: blur(10px);
+  background-color: rgba(14,17,27,.5);
+  /* backdrop-filter: blur(10px); */
   width: 100%;
   height: 25px;
   padding: 6px;
@@ -1156,7 +1236,7 @@ grid-template-areas:
     border-radius: 16px;
     justify-content: center;
     flex-direction: column;
-    background: rgb(255, 255, 255);
+    background: var(--color-title-area);
     padding: 10px 16px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 12px 0px;
     align-items: center;
@@ -1167,12 +1247,15 @@ grid-template-areas:
 
 .game-list .our-fav-title h1 { 
   margin: 0px;
-  font: 700 20px/24px var(--fontNunito);
-  color: var(--color-hover);
+  font: 900 20px/24px var(--fontNunito);
+  color: var(--color-white);
   overflow: hidden;
+  text-transform: capitalize;
+  /*
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  */
 }
 
 /* routes/Movie */

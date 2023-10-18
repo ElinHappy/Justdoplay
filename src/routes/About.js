@@ -1,5 +1,6 @@
 import { Component } from '../core/heropy'
 import aboutStore from '../store/about'
+//import * as game_data from '../store/games_db.json'
 
 export default class About extends Component {
   render() {
@@ -20,4 +21,12 @@ export default class About extends Component {
       <p><a href="${blog}" target="_blank">Blog</a></p>
     `
   }
+
+  testLoad () { 
+    fetch("../store/json_db.json") 
+        .then((res) => { 
+        return res.json(); 
+    }) 
+    .then((data) => console.log(data)); 
+}
 }

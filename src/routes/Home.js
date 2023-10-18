@@ -11,16 +11,16 @@ export default class Home extends Component {
         //const headline = new Headline().el
         const search = new Search().el
         const gamelist = new GameList().el
-        const movielistmore = new MovieListMore().el
-        const gamedesc = new GameDesc().el
+        //const movielistmore = new MovieListMore().el
+        //const gamedesc = new GameDesc().el
 
         this.el.classList.add('container')
         this.el.append(
             //headline,
             search,
-            gamelist,
-            movielistmore,
-            gamedesc
+            //movielistmore,
+            gamelist
+            //gamedesc
 
         )
     }

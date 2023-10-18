@@ -3,7 +3,7 @@ import movieStore from "../store/movie"
 import GameItem from "./GameItem"
 import GameCategory from "./GameCategory";
 
-export default class OurFavourite extends Component {
+export default class GameListOurFav extends Component {
     constructor() {
         super()
         movieStore.subscribe('games ourfav-grid', () => {
@@ -17,13 +17,14 @@ export default class OurFavourite extends Component {
         })
     }
     render () {
+        const ourfavTitle = history.state.cname
         const categories = new GameCategory().el
         this.el.classList.add('game-list')
         this.el.innerHTML = /* html */ `
             <div class="the-loader hide"></div>
             ${movieStore.state.message 
             ? `<div class="message">${movieStore.state.message}</div>` 
-            : '<div class="games ourfav-grid"><div class="our-fav-title"><h1>Cool Games</h1></div></div>'}
+            : `<div class="games ourfav-grid"><div class="our-fav-title"><h1>${ourfavTitle} Games</h1></div></div>`}
             ${categories.outerHTML}
      
         `
