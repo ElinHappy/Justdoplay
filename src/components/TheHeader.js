@@ -7,15 +7,31 @@ export default class TheHeader extends Component {
       state: {
         menus: [
           {
-            name: 'Search',
+            name: 'Today Play!',
             href: '#/'
           },
           {
-            name: 'Movie',
+            name: 'Now Play!',
+            href: '#/game/game?id=tt4520988'
+          },
+          {
+            name: 'Our Favourires',
+            href: '#/cg/ourfav?cname=popular'
+          },
+          {
+            name: 'World Rank',
             href: '#/movie?id=tt4520988'
           },
           {
-            name: 'About',
+            name: 'Movie&Games',
+            href: '#/movie?id=tt4520988'
+          },
+          {
+            name: 'Tranding Now',
+            href: '#/movie?id=tt4520988'
+          },
+          {
+            name: 'Random Play',
             href: '#/about'
           }
         ]
@@ -30,7 +46,7 @@ export default class TheHeader extends Component {
       <a
         href="#/"
         class="logo">
-        <span>OMDbAPI</span>.COM
+        <span>JustDoPlay!</span>.COM
       </a>
       <nav>
         <ul>
@@ -41,7 +57,7 @@ export default class TheHeader extends Component {
             return /* html */ `
               <li>
                 <a
-                  class="${isActive ? 'active' : ''}"
+                  class="hmenu ${isActive ? 'active' : ''}"
                   href="${menu.href}">
                   ${menu.name}
                 </a>

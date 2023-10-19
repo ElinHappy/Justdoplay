@@ -1,0 +1,86 @@
+{
+    "PromoGames": [
+      {
+        "id": "29630",
+        "gridPosition": "fg0"
+      },
+      {
+        "id": "25964",
+        "gridPosition": "fg1"
+      },
+      {
+        "id": "4733",
+        "gridPosition": "fg2"
+      },
+      {
+        "id": "3921",
+        "gridPosition": "fg3"
+      },
+      {
+        "id": "29625",
+        "gridPosition": "fg4"
+      },
+      {
+        "id": "12602",
+        "gridPosition": "fg5"
+      },
+      {
+        "id": "6544",
+        "gridPosition": "fg6"
+      },
+      {
+        "id": "4916",
+        "gridPosition": "fg7"
+      },
+      {
+        "id": "1369",
+        "gridPosition": "fg8"
+      },
+      {
+        "id": "15642",
+        "gridPosition": "fg9"
+      },
+      {
+        "id": "5606",
+        "gridPosition": "fg10"
+      },
+      {
+        "id": "2110",
+        "gridPosition": "fg11"
+      },
+      {
+        "id": "4995",
+        "gridPosition": "fg12"
+      },
+      {
+        "id": "29672",
+        "gridPosition": "fg13"
+      },
+      {
+        "id": "29639",
+        "gridPosition": "fg14"
+      },
+      {
+        "id": "29603",
+        "gridPosition": "fg15"
+      },
+      {
+        "id": "29324",
+        "gridPosition": "fg16"
+      },
+      {
+        "id": "29675",
+        "gridPosition": "fg17"
+      },
+      {
+        "id": "2907",
+        "gridPosition": "fg18"
+      },
+      {
+        "id": "29554",
+        "gridPosition": "fg19"
+      }
+    ],
+    "totalResults": "20",
+    "Response": "True"
+  }

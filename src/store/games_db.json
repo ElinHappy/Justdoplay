@@ -1,0 +1,64 @@
+{
+    "games": [
+      {
+        "id": 30370,
+        "developer": "Martin Magni",
+        "mobile": true,
+        "title": "Drive Mad",
+        "type": "game",
+        "image": {
+          "path": "f8a2160e52333ee0d44ec19e8ca65139.png",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "url": "\\u002Fen\\u002Fg\\u002Fdrive-mad",
+        "slug": "drive-mad",
+        "animatedThumbnail": "e30a865b-3fba-465d-8327-cadb668e9dd4\\u002Fthumbnail"
+      },
+      {
+        "id": 30370,
+        "developer": "Martin Magni",
+        "mobile": true,
+        "title": "Drive Mad",
+        "type": "game",
+        "image": {
+          "path": "f8a2160e52333ee0d44ec19e8ca65139.png",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "url": "\\u002Fen\\u002Fg\\u002Fdrive-mad",
+        "slug": "drive-mad",
+        "animatedThumbnail": "e30a865b-3fba-465d-8327-cadb668e9dd4\\u002Fthumbnail"
+      },
+      {
+        "id": 30370,
+        "developer": "Martin Magni",
+        "mobile": true,
+        "title": "Drive Mad",
+        "type": "game",
+        "image": {
+          "path": "f8a2160e52333ee0d44ec19e8ca65139.png",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "url": "\\u002Fen\\u002Fg\\u002Fdrive-mad",
+        "slug": "drive-mad",
+        "animatedThumbnail": "e30a865b-3fba-465d-8327-cadb668e9dd4\\u002Fthumbnail"
+      },
+      {
+        "id": 30370,
+        "developer": "Martin Magni",
+        "mobile": true,
+        "title": "Drive Mad",
+        "type": "game",
+        "image": {
+          "path": "f8a2160e52333ee0d44ec19e8ca65139.png",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "url": "\\u002Fen\\u002Fg\\u002Fdrive-mad",
+        "slug": "drive-mad",
+        "animatedThumbnail": "e30a865b-3fba-465d-8327-cadb668e9dd4\\u002Fthumbnail"
+      }
+    ]
+  }
